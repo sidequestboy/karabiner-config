@@ -70,7 +70,7 @@ writeToProfile("Test", [
     "Map dvorak keys to qwerty when cmd is held",
     ifInputSource({ language: "en", input_source_id: "Dvorak" })
   ).manipulators(keymap),
-  layer("spacebar", "space-mode", 50).manipulators([
+  simlayer("spacebar", "space-mode").manipulators([
     map("a").to(1),
     map("s").to(2),
     map("d").to(3),
@@ -81,5 +81,8 @@ writeToProfile("Test", [
     map("k").to(8),
     map("l").to(9),
     map(";").to(0),
+  ]),
+  rule("Map caps to control, escape if alone.").manipulators([
+    map("caps_lock").to("left_control").toIfAlone("escape"),
   ]),
 ]);
