@@ -4,6 +4,9 @@ import {
   writeToProfile,
   ifInputSource,
   ModifierParam,
+  simlayer,
+  layer,
+  duoLayer,
 } from "karabiner.ts";
 
 // only remap when command is involved
@@ -18,7 +21,7 @@ const modifierCombos = [
   "⌘⌃⌥⇧",
 ] as ModifierParam[]; // "⇪" | "⌘" | "⌥" | "⌃" | "⇧"
 
-let keymap = modifierCombos
+const keymap = modifierCombos
   .map((modifierCombo) => [
     map("'", modifierCombo).to("q", modifierCombo),
     map(",", modifierCombo).to("w", modifierCombo),
@@ -61,9 +64,22 @@ let keymap = modifierCombos
     map("]", modifierCombo).to("=", modifierCombo),
   ])
   .flat();
+
 writeToProfile("Test", [
   rule(
     "Map dvorak keys to qwerty when cmd is held",
     ifInputSource({ language: "en", input_source_id: "Dvorak" })
   ).manipulators(keymap),
+  layer("spacebar", "space-mode", 200).manipulators([
+    map("a").to(1),
+    map("s").to(2),
+    map("d").to(3),
+    map("f").to(4),
+    map("g").to(5),
+    map("h").to(6),
+    map("j").to(7),
+    map("k").to(8),
+    map("l").to(9),
+    map(";").to(0),
+  ]),
 ]);
