@@ -70,7 +70,7 @@ writeToProfile("Test", [
     "Map dvorak keys to qwerty when cmd is held",
     ifInputSource({ language: "en", input_source_id: "Dvorak" })
   ).manipulators(keymap),
-  layer("spacebar", "space-mode", 200).manipulators([
+  layer("spacebar", "space-mode", 50).manipulators([
     map("a").to(1),
     map("s").to(2),
     map("d").to(3),
