@@ -7,6 +7,10 @@ import {
   simlayer,
   layer,
   duoLayer,
+  ifApp,
+  withModifier,
+  ifVar,
+  ifDevice,
 } from "karabiner.ts";
 
 // only remap when command is involved
@@ -70,19 +74,29 @@ writeToProfile("Test", [
     "Map dvorak keys to qwerty when cmd is held",
     ifInputSource({ language: "en", input_source_id: "Dvorak" })
   ).manipulators(keymap),
-  simlayer("spacebar", "space-mode").manipulators([
-    map("a").to(1),
-    map("s").to(2),
-    map("d").to(3),
-    map("f").to(4),
-    map("g").to(5),
-    map("h").to(6),
-    map("j").to(7),
-    map("k").to(8),
-    map("l").to(9),
-    map(";").to(0),
-  ]),
   rule("Map caps to control, escape if alone.").manipulators([
     map("caps_lock").to("left_control").toIfAlone("escape"),
   ]),
+  rule("Remap MMO mouse keys")
+    .manipulators([
+      map(1).to("mute"),
+      map(2).to("volume_decrement"),
+      map(3).to("volume_increment"),
+      map(4).to("rewind"),
+      map(5).to("play_or_pause"),
+      map(6).to("fastforward"),
+      map(7).to("display_brightness_decrement"),
+      map(8).to("mission_control"),
+      map(9).to("display_brightness_increment"),
+      // map(0).to(0),
+      // map("=").to("="),
+      // map("-").to("-"),
+    ])
+    .condition(
+      ifDevice({
+        is_keyboard: true,
+        vendor_id: 1241,
+        product_id: 64088,
+      })
+    ),
 ]);
