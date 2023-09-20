@@ -2,5 +2,4 @@
 
 key remapping configuration for Karabiner on macos.
 
-Remaps command* to qwerty while on dvorak, and maps the spacebar to a number
-layer key on the homerow, and caps to esc / control.
+Remaps command* to qwerty while on dvorak, caps to esc / control, and remaps my MMO mouse keypad buttons
