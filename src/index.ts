@@ -69,7 +69,7 @@ const keymap = modifierCombos
   ])
   .flat();
 
-writeToProfile("Test", [
+writeToProfile("TS Config", [
   rule(
     "Map dvorak keys to qwerty when cmd is held",
     ifInputSource({ language: "en", input_source_id: "Dvorak" })
@@ -89,7 +89,7 @@ writeToProfile("Test", [
       map(8).to("mission_control"),
       map(9).to("display_brightness_increment"),
       // map(0).to(0),
-      // map("=").to("="),
+      // map("+").to("+"),
       // map("-").to("-"),
     ])
     .condition(
